@@ -3,7 +3,8 @@
             [com.stuartsierra.component :as component]
             [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
-            [real-world-clojure-api.component.example-component :as example-component]))
+            [real-world-clojure-api.component.example-component :as example-component]
+            [real-world-clojure-api.component.pedestal-component :as pedestal-component]))
 
 (defn respond-hello [request]
   {:status 200 :body "Hello, world!"})
@@ -25,7 +26,8 @@
 (defn real-world-clojure-api-system
   [config]
   (component/system-map :example-component (example-component/new-example-component
-                                            config)))
+                                            config)
+                        :pedestal-component/new-pedestal-component (pedestal-component/new-pedestal-component config)))
 
 (defn -main
   []
