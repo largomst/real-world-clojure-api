@@ -6,5 +6,4 @@
   []
   (-> "config.edn"
       (io/resource)
-      (aero/read-config))
-  )
+      (aero/read-config)))
